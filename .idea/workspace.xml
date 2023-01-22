@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee6fcbf3-8971-4a87-9046-2b30c7867c88" name="Changes" comment="archivos configuración IDE">
-      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/AlojamientoPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/BasePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/Swipe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Runner/Runner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Steps/AlojamientoBookingSteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/Features/Booking.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="ee6fcbf3-8971-4a87-9046-2b30c7867c88" name="Changes" comment="flujo de alojamiento" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -155,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674098212227</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="flujo de alojamiento">
+      <created>1674417020173</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1674417020173</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -171,6 +168,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="archivos configuración IDE" />
-    <option name="LAST_COMMIT_MESSAGE" value="archivos configuración IDE" />
+    <MESSAGE value="flujo de alojamiento" />
+    <option name="LAST_COMMIT_MESSAGE" value="flujo de alojamiento" />
   </component>
 </project>
