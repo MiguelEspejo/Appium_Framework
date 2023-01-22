@@ -107,13 +107,6 @@ public class Main {
 
             driver.findElement(By.xpath("//android.widget.TextView[@text='First Name']"));
 
-
-
-
-
-
-
-
         }catch(Exception e){
             e.printStackTrace();
         }
