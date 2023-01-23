@@ -1,4 +1,5 @@
 plugins {
+    id 'application'
     id 'java'
 }
 
@@ -10,8 +11,6 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 
     // Use JUnit Jupiter for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter:5.7.2'
@@ -19,14 +18,23 @@ dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:30.1.1-jre'
 
+
     implementation group: 'junit', name: 'junit', version: '4.12'
     implementation group: 'io.cucumber', name: 'cucumber-java', version: '7.9.0'
     testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '7.0.0'
+    testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '7.10.1'
+
     // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
     testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '2.0.6'
+    implementation group: 'io.cucumber', name: 'cucumber-java', version: '7.10.1'
     // https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber7-adapter
     implementation group: 'tech.grasshopper', name: 'extentreports-cucumber7-adapter', version: '1.9.2'
 
+    // https://mvnrepository.com/artifact/info.cukes/cucumber-junit
+    testImplementation group: 'info.cukes', name: 'cucumber-junit', version: '1.2.6', ext: 'pom'
+
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-support
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-support', version: '4.7.2'
 
     // https://mvnrepository.com/artifact/io.appium/java-client
     implementation group: 'io.appium', name: 'java-client', version: '8.3.0'
@@ -35,7 +43,17 @@ dependencies {
 
 
 }
+test {
+
+}
+application {
+    // Define the main class for the application.
+    mainClass = 'frameworkappium.Runner'
+}
+
+
 
 test {
-    useJUnitPlatform()
+   // useJUnitPlatform()
+    systemProperty "cucumberOptions", System.getProperty("cucumber.options")
 }
