@@ -51,6 +51,8 @@ public class AlojamientoPage extends BasePage {
     private String locTotalvalue = "com.booking:id/title";
     private String locFechasSelec = "com.booking:id/facet_search_box_basic_field_label";
     private String locRoomsTotalImp = "com.booking:id/price_view_price";
+    private String locAlertNoDestino = "com.booking:id/message";
+    private String locBtnOkAlertNoDestino = "com.booking:id/message";
 
 
     //variables
@@ -65,25 +67,25 @@ public class AlojamientoPage extends BasePage {
         BasePage.setCapabilities();
     }
 
-    public void clicEnInputDestino() throws InterruptedException {
+    public void clicEnInputDestino() {
         this.clickElement(this.InputDestino);
         espera(2);
     }
 
-    public void capturaDestino(String destino) throws InterruptedException {
+    public void capturaDestino(String destino) {
         this.write(this.InputDestinoCaptura, destino);
     }
 
-    public void clicEnResultadoDestino() throws InterruptedException {
+    public void clicEnResultadoDestino() {
         this.clickElement(this.primerResultadoDestinos);
     }
 
-    public void seleccionarFechasAlojamiento() throws InterruptedException {
+    public void seleccionarFechasAlojamiento() {
         this.selectFechas(this.locFechaInicio, this.locFechaFin, this.locDatePick, this.locSelect);
 
     }
 
-    public void seleccionarOcupantes(String cantCuartos, String cantAdultos, String edadNino) throws InterruptedException {
+    public void seleccionarOcupantes(String cantCuartos, String cantAdultos, String edadNino) {
         this.clickElement(this.locOcupantes);
         this.controlTaps(this.locBotonAgregar, this.locBotonRemover, this.locValueOcupantes, this.locTapEdadNino, cantCuartos, cantAdultos, edadNino);
         this.clickElement(this.locBtnOkEdades);
@@ -91,7 +93,7 @@ public class AlojamientoPage extends BasePage {
         this.clickElement(this.locBtnAplicar);
     }
 
-    public void selBtnSearch() throws InterruptedException {
+    public void selBtnSearch() {
         //obteniendo fechas para validación
         List<WebElement> elementsPrincipales = driver.findElements(By.id(locFechasSelec));
         fechasSelectionadas = elementsPrincipales.get(1).getText();
@@ -99,11 +101,11 @@ public class AlojamientoPage extends BasePage {
         this.clickElement(this.locBtnBusqueda);
     }
 
-    public void selResultadoSearch() throws InterruptedException {
+    public void selResultadoSearch() {
         this.selecResultadoBusqueda(this.locSelResulBusq, this.locScrollResulBusqueda, this.cerrarMsj);
     }
 
-    public void selecionaHabitacion() throws InterruptedException {
+    public void selecionaHabitacion() {
         espera(1);
         this.clickElement(this.locBtnSelectRooms);
         importeValueRooms = this.obtenerTextoDeElemento(locRoomsTotalImp);
@@ -115,7 +117,7 @@ public class AlojamientoPage extends BasePage {
         this.clickElement(this.locBtnReservar);
     }
 
-    public void capturaDatosHuesp(String nombre, String apellido, String email, String direccion, String codigoPostal, String ciudad, String pais, String telefono) throws InterruptedException {
+    public void capturaDatosHuesp(String nombre, String apellido, String email, String direccion, String codigoPostal, String ciudad, String pais, String telefono) {
         espera(5);
 
         //driver.switchTo().alert().dismiss();
@@ -151,11 +153,11 @@ public class AlojamientoPage extends BasePage {
         espera(2);
     }
 
-    public String validarTotal() throws InterruptedException {
+    public String validarTotal() {
         return this.obtenerTextoDeElemento(this.locTotalvalue);
     }
 
-    public void verificarAlojamiento() throws InterruptedException {
+    public void verificarAlojamiento() {
         this.clickElement(locFinalStep);
         //capturar datos de tarjeta
         this.write(locNumeroTarj, "4555 7887 6544 3333");
@@ -177,8 +179,16 @@ public class AlojamientoPage extends BasePage {
         System.out.println("Que trae el locator total del final step " + textTotalValue.get(0).getText());
         Assert.assertEquals("EL importe mostrado no es el que fue seleccionado ", importeValueRooms, textTotalValue.get(0).getText());
 
+    }
+
+    public void verifMsjNoDestino(String textAlertaEsperado) {
+        //verificar el mensaje trayendome el texto del id del mensaje y comparo con el esperado que lo tomo del escenario
+        String textoAlert = this.obtenerTextoDeElemento(this.locAlertNoDestino);
+        Assert.assertEquals("No se esta mostrando el mensaje de valñidación", textAlertaEsperado, textoAlert);
 
     }
+
+
 
 
 }

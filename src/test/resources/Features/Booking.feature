@@ -3,11 +3,13 @@ Feature: Revisar las funcionalidades disponibles en la app booking.com
 
   Rule: Revisaremos las funcionalidades del servicio de alojamiento en la aplicación de booking.com
 
+
+    @Smoke
     Scenario Outline: Verificar que se permita realizar una busqueda de alojamientos con diferentes destinos
       Given Acceso a la aplicacion booking.com
       When Capturo el Destino y selecciono Cusco
       And Selecciono la Fecha Inicio 14 February 2023 y Fecha Fin 28 February 2023 del alojamiento
-      When Capturo la cantidad de cuartos 1 adultos 1 y ninos 5 anos
+      When Capturo la cantidad de cuartos 1 adultos 3 y ninos 5 anos
       And Presiono tap en el boton search
       And Selecciono algun resultado en el resultado de la busqueda
       When Selecciono y reservo la habitacion
@@ -17,4 +19,8 @@ Feature: Revisar las funcionalidades disponibles en la app booking.com
         | Nombre  | Apellido | Email              | Direccion      | CodigoPostal | Ciudad          | Pais   | Telefono   |
         | Roberto | Lopez    | correo@hotmail.com | Zacatecas 1559 | 81200        | Ciudad Conocida | Mexico | 6681204050 |
 
-
+    @unHappyPath
+    Scenario: Verificar que no se permita buscar Alojamientos si no se captura Destino
+      Given Acceso a la aplicacion booking.com
+      When Selecciono el boton search sin capturar destino
+      Then Verifico el mensaje de validacion Please enter your destination y presiono Ok

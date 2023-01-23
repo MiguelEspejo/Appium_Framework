@@ -1,16 +1,19 @@
 package Runner;
 
+import org.junit.runner.RunWith;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
-import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/test/resources/features"},
-        glue = {"steps"},
-        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", "json:target/cucumber-reports.json"},
-        monochrome = true,
-        tags = "@Smoke"
+        features = "src/test/resources/features",
+        glue = "frameworkappium.Steps",
+        tags = "@Smoke",
+        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+                , "json:target/cucumber-reports.json"},
+        monochrome = true
 )
 public class Runner {
+    public Runner() {
+    }
 }
